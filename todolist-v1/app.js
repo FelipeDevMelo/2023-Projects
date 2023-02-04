@@ -5,19 +5,27 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 
 app.get("/", function (req, res) {
   var today = new Date();
-  
+  var weekDays = [
+    "sunday",
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+  ];
   var day = "";
   if (today.getDay() === 6 || today.getDay() === 0) {
-    day = "weekend";
+    day = "weekend!!";
   } else {
-    day = "weekday";
+    day = "weekday :(";
   }
 
-  res.render("list", { kindOfDay: day });
+  res.render("list", { kindOfDay: day, dayOfWeek: weekDays[today.getDay()] });
 });
 
 app.listen(3000, function () {
