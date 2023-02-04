@@ -9,7 +9,7 @@ app.set('view engine', 'ejs');
 
 app.get("/", function (req, res) {
   var today = new Date();
-  var dd;
+  
   var day = "";
   if (today.getDay() === 6 || today.getDay() === 0) {
     day = "weekend";
