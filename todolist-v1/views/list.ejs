@@ -1,21 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To do list</title>
-  </head>
 
-  <body>
-   <% if(dayOfWeek==="saturday" || dayOfWeek==="sunday"){%>
-    <h1 style="color: blueviolet">
-      today is <%=dayOfWeek%>, its <%=kindOfDay %>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/CSS/styles.css">
+  <title>To do list</title>
+</head>
+
+<body>
+  <div class="box" id="heading">
+    <h1>
+      <%=dateEJS%>
     </h1>
-   <% }else{%>
-    <h1 style="color: gray">
-      today is <%=dayOfWeek%>, its <%=kindOfDay %>
-    </h1>
-   <% }%>
-  </body>
+  </div>
+
+  <div class="box">
+
+    <% for(var i=0;i<newListItem.length;i++){%>
+      <div class="item">
+        <input type="checkbox">
+        <p>
+          <%=newListItem[i]%>
+        </p>
+      </div>
+
+      <% }%>
+
+      <form class="item" action="/" method="post">
+        <input autocomplete="off" placeholder="new item" type="text" name="newItem" />
+        <button type="submit">+</button>
+      </form>
+
+  </div>
+
+
+
+ 
+
+
+</body>
+
 </html>
