@@ -21,7 +21,16 @@ const articleSchema = new mongoose.Schema({
 
 const Article = mongoose.model("Article", articleSchema);
 
-app.route("/articles")
+
+////////////////////////////////////////////////
+
+app.route("/articles/:articleTitle")
+
+  .get((req, res) => {});
+
+
+app
+.route("/articles")
 
   .get((req, res) => {
     Article.find()
@@ -50,6 +59,8 @@ app.route("/articles")
         console.log(err);
       });
   });
+
+
 
 app.listen(port, () => {
   console.log(` app listening on port ${port}`);
