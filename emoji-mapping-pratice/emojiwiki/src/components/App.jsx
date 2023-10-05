@@ -1,7 +1,6 @@
 import React from "react";
-import EmojiCreator from "./EmojiCreator";
+import Dictionary from "./Dictionary";
 import emojipedia from "../emojipedia";
-
 
 function App() {
   return (
@@ -9,7 +8,14 @@ function App() {
       <h1>
         <span>emojipedia</span>
       </h1>
-      {emojipedia.map(EmojiCreator)}
+      {emojipedia.map((emojiwiki) => (
+        <Dictionary
+          key={emojiwiki.id}
+          emoji={emojiwiki.emoji}
+          name={emojiwiki.name}
+          meaning={emojiwiki.meaning}
+        />
+      ))}
     </div>
   );
 }
